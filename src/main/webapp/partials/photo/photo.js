@@ -28,8 +28,8 @@
             self.loading = true;
             var req = Utils.reqConfig("GET", 'https://api.flickr.com/services/rest/');
             req.params['method'] = 'flickr.photos.search';
-            req.params['user_id'] = '160363174@N07';
-            req.params['api_key'] = '3592844f07dede57633c527de3e2ac3d';
+            req.params['user_id'] = '';
+            req.params['api_key'] = '';
             req.params['format'] = 'json';
             req.params['nojsoncallback'] = '1';
             req.params['extras'] = 'url_l';
@@ -70,11 +70,11 @@
         self.init = function() {
             $window.scrollTo(0, 0);
             $rootScope.navBarShrink(true);
-            self.hasMore = true;
+            self.hasMore = false;
             self.loading = false;
             self.currentPage = 1;
             self.collection = [];
-            self.loadImg();
+            //self.loadImg();
         };
     }
 })();

@@ -98,3 +98,4 @@ target/
 # End of https://www.gitignore.io/api/java,java-web,intellij
 /.idea/
 /wedding-pattystrolly.iml
+/src/main/resources/attachments/*
