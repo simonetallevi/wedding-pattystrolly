@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="wedding">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta property="og:title" content="giancarlo + enrica"/>
+    <meta property="og:description" content="Vi aspettano per festeggiare il loro Matrimonio!"/>
+    <meta property="og:url" content="http://pattystrolly.it"/>
+    <meta property="og:image" content="http://pattystrolly.it/img/wedding-logo-small.png"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Vi aspettano per festeggiare il loro Matrimonio!">
+    <meta name="author" content="Simone Tallevi-Diotallevi">
+
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16"/>
+
+    <title>patty + strolly</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this template -->
+    <link href="css/wedding.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular/angular-animate.min.js"></script>
+    <script src="vendor/angular/angular-touch.min.js"></script>
+    <script src="vendor/angular/angular-ui-router.min.js"></script>
+    <script src="vendor/angular/angular-scroll.min.js"></script>
+    <script src="vendor/angular/angular-gridify.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx73ZkwoWY0Qa7B0DEwRmLho6w3nX1_is&libraries=places&sensor=false"></script>
+
+    <script src="vendor/bootstrap-ui/bootstrap-ui-2.5.0.min.js"></script>
+
+    <script src="vendor/ng-infinite-scroll.min.js"></script>
+
+    <script src="app.js"></script>
+
+    <script src="shared/constants.js"></script>
+    <script src="shared/services.js"></script>
+
+    <script src="partials/main.js"></script>
+    <script src="partials/home/home.js"></script>
+    <script src="partials/photo/photo.js"></script>
+
+</head>
+
+<body id="page-top" ng-controller="MainCtrl as Main" ng-init="Main.init()">
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <div class="row">
+            <div style="margin-right:20px">
+                <img height="45px" src="img/wedding-logo-small.png">
+            </div>
+            <a class="navbar-brand" du-smooth-scroll du-scrollspy offset="30" href="#page-top">giancarlo <span
+                    style="color:red">+</span>
+                enrica</a>
+        </div>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation" ng-click="Main.toggleMenu()">
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive" ng-style="{display: Main.menuToggled}">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" du-smooth-scroll du-scrollspy offset="30" href="#lista">luna di miele</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" du-smooth-scroll du-scrollspy offset="30" href="#location">location</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" du-smooth-scroll du-scrollspy offset="30" ui-sref="photo">photos</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div id="main-view" ui-view></div>
+
+<!-- Footer -->
+<footer>
+    <!--<button onclick="hello('google').login()">google</button>-->
+
+    <div class="container text-center">
+        <p>giancarlo + enrica</p>
+    </div>
+</footer>
+
+</body>
+
+</html>

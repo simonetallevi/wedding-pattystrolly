@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" version="2.5">
+
+    <filter>
+        <filter-name>ObjectifyFilter</filter-name>
+        <filter-class>com.googlecode.objectify.ObjectifyFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ObjectifyFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>ConfigServlet</servlet-name>
+        <servlet-class>it.pattystrolly.wedding.servlet.config.ConfigServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ConfigServlet</servlet-name>
+        <url-pattern>/config/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegisterAuthServlet</servlet-name>
+        <servlet-class>it.pattystrolly.wedding.servlet.auth.RegisterAuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterAuthServlet</servlet-name>
+        <url-pattern>/auth/register</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OauthCallback</servlet-name>
+        <servlet-class>it.pattystrolly.wedding.servlet.auth.OauthCallback</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OauthCallback</servlet-name>
+        <url-pattern>/oauthcallback</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TaskLauncher</servlet-name>
+        <servlet-class>it.pattystrolly.wedding.servlet.task.TaskLauncher</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TaskLauncher</servlet-name>
+        <url-pattern>/task/launcher</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SendEmailsTaskServlet</servlet-name>
+        <servlet-class>it.pattystrolly.wedding.servlet.task.SendEmailsTaskServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SendEmailsTaskServlet</servlet-name>
+        <url-pattern>/task/send</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>RegistrationFilter</servlet-name>
+        <servlet-class>it.pattystrolly.wedding.servlet.filter.EntitiesFilter</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegistrationFilter</servlet-name>
+        <url-pattern>/registration</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>EmailOpenRegistrationServlet</servlet-name>
+        <servlet-class>it.pattystrolly.wedding.servlet.registration.EmailOpenRegistrationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>EmailOpenRegistrationServlet</servlet-name>
+        <url-pattern>/view-registration</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>WebSiteVisitedRegistrationServlet</servlet-name>
+        <servlet-class>it.pattystrolly.wedding.servlet.registration.WebSiteVisitedRegistrationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WebSiteVisitedRegistrationServlet</servlet-name>
+        <url-pattern>/web-registration</url-pattern>
+    </servlet-mapping>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>all</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>task</web-resource-name>
+            <url-pattern>/task</url-pattern>
+        </web-resource-collection>
+        <web-resource-collection>
+            <web-resource-name>sub-task</web-resource-name>
+            <url-pattern>/task/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>config</web-resource-name>
+            <url-pattern>/config</url-pattern>
+        </web-resource-collection>
+        <web-resource-collection>
+            <web-resource-name>auth</web-resource-name>
+            <url-pattern>/auth</url-pattern>
+        </web-resource-collection>
+        <web-resource-collection>
+            <web-resource-name>registration</web-resource-name>
+            <url-pattern>/registration</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+</web-app>

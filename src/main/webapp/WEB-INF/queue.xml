@@ -1,0 +1,13 @@
+<queue-entries>
+
+    <queue>
+        <name>send-queue</name>
+        <rate>20/s</rate>
+        <bucket-size>500</bucket-size>
+        <max-concurrent-requests>200</max-concurrent-requests>
+        <retry-parameters>
+            <task-retry-limit>0</task-retry-limit>
+        </retry-parameters>
+    </queue>
+
+</queue-entries>

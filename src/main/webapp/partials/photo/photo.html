@@ -1,0 +1,14 @@
+<div ng-init="Photo.init()" class="photo">
+
+    <div infinite-scroll="Photo.loadNext()" infinite-scroll-distance="1" class="photo-container">
+        <hj-gridify hj-gridify-options="{
+        collection: Photo.collection,
+        perRow: Photo.getPerRow,
+        averageRatio: 1.5,
+        gutter: 1}" hj-gridify-item-as="tile">
+
+            <div class="item" back-img="{{tile.src}}"></div>
+
+        </hj-gridify>
+    </div>
+</div>

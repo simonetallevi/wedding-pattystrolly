@@ -1,0 +1,400 @@
+@font-face {
+    font-family: "Sue";
+    src: url('nellasuedemo-webfont.eot');
+    src: url('nellasuedemo-webfont.eot?#iefix') format('eot'),
+         url('nellasuedemo-webfont.woff') format('woff'),
+         url('nellasuedemo-webfont.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "EuphoriaScript";
+    src: url(EuphoriaScript-Regular.otf) format("truetype");
+}
+
+body {
+    font-family: 'Sue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: whitesmoke;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+#main-view,
+#home-scroll-context {
+    position: relative;
+    width: 100%;
+}
+
+.background{
+    z-index: -1;
+    width: 100%;
+    position: fixed;
+    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url("../img/intro-bg.jpg") no-repeat bottom center scroll;
+    background-color: black;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+button{
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Sue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    margin: 0 0 35px;
+    letter-spacing: 1px;
+}
+
+h5,
+h6 {
+    font-weight: 100;
+    margin: 0 0 15px;
+}
+
+.intro-text,
+.italic {
+    font-family: 'Sue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.red-line{
+    border-bottom: 2px solid red;
+    width: 100%;
+}
+
+p {
+    font-size: 30px;
+    line-height: 1.5;
+    margin: 0 0 25px;
+}
+
+@media (min-width: 768px) {
+    p {
+        font-size: 30px;
+        line-height: 1.5;
+        margin: 0 0 35px;
+    }
+}
+
+a {
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    color: whitesmoke;
+}
+
+a:focus,
+a:hover {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+#mainNav {
+    font-family: 'Sue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-bottom: 0;
+    background-color: black;
+    ;
+}
+
+#mainNav .navbar-toggler {
+    font-size: 30px;
+    padding: 11px;
+    color: whitesmoke;
+    border: none
+}
+
+#mainNav .navbar-brand {
+    font-weight: 700;
+}
+
+#mainNav a {
+    color: whitesmoke;
+}
+
+#mainNav .navbar-nav .nav-item {
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+    font-size: 22px;
+    padding-top: 13px;
+}
+
+#mainNav .navbar-nav .nav-item:hover {
+    color: fade(whitesmoke, 80%);
+    outline: none;
+    background-color: transparent;
+}
+
+#mainNav .navbar-nav .nav-item:active,
+#mainNav .navbar-nav .nav-item:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+.wedding-logo {
+    width: 100%;
+    max-width: 500px;
+}
+
+.masthead .intro-body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+@media (max-width: 992px) {
+
+}
+
+@media (max-width: 768px) {
+
+    .masthead .intro-body{
+        vertical-align: top;
+    }
+}
+
+@media (min-width: 992px) {
+    #mainNav {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        -webkit-transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
+        -moz-transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
+        transition: background 0.3s ease-in-out, padding-top 0.3s ease-in-out, padding-bottom 0.3s;
+        letter-spacing: 1px;
+        border-bottom: none;
+        background: transparent;
+    }
+    #mainNav.navbar-shrink {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background: black;
+    }
+    #mainNav .nav-link.active {
+        outline: none;
+    }
+    #mainNav .nav-link.active:hover {
+        color: whitesmoke;
+    }
+}
+
+.masthead {
+    display: table;
+    width: 100%;
+    height: auto;
+    padding: 100px 0;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.navbar-brand{
+    font-size: 22px;
+    padding-top: 13px;
+}
+
+.masthead .intro-body .brand-heading {
+    font-size: 55px;
+    font-weight: 100;
+}
+
+.masthead .intro-body .intro-text {
+    font-size: 31px;
+}
+
+@media (min-width: 768px) {
+    .masthead {
+        height: 100%;
+        padding: 0;
+    }
+    .masthead .intro-body .brand-heading {
+        font-size: 55px;
+    }
+    .masthead .intro-body .intro-text {
+        font-size: 31px;
+    }
+}
+
+.btn-circle {
+    font-size: 26px;
+    width: 55px;
+    height: 55px;
+    margin-top: 15px;
+    line-height: 45px;
+    -webkit-transition: background 0.3s ease-in-out;
+    -moz-transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+    color: whitesmoke;
+    border: 2px solid whitesmoke;
+    border-radius: 100% !important;
+    background: transparent;
+}
+
+.btn-circle:focus,
+.btn-circle:hover {
+    color: whitesmoke;
+    outline: none;
+}
+
+.content-section {
+    padding-top: 100px;
+}
+
+.download-section {
+    color: whitesmoke;
+    background: url("../img/downloads-bg.jpg") no-repeat center center scroll;
+    background-color: black;
+    ;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#map {
+    width: 100%;
+    height: 600px;
+}
+
+@media (min-width: 992px) {
+    .content-section {
+        padding-top: 100px;
+    }
+    #map {
+        height: 350px;
+    }
+}
+
+.btn {
+    font-family: 'Sue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    border-radius: 0;
+}
+
+.btn-default {
+    color: #00838F;
+    ;
+    border: 1px solid #00838F;
+    ;
+    background-color: transparent;
+}
+
+.btn-default:focus,
+.btn-default:hover {
+    outline: none;
+    ;
+}
+
+ul.banner-social-buttons {
+    margin-top: 0;
+}
+
+@media (max-width: 1199px) {
+    ul.banner-social-buttons {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    ul.banner-social-buttons li {
+        display: block;
+        margin-bottom: 30px;
+        padding: 0;
+    }
+    ul.banner-social-buttons li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+footer {
+    padding: 50px 0;
+}
+
+footer p {
+    font-size: 18px;
+    margin: 0;
+}
+
+::-moz-selection {
+    background: #fcfcfc;
+    background: rgba(255, 171, 0.2);
+    text-shadow: none;
+}
+
+::selection {
+    background: #fcfcfc;
+    background: rgba(255, 171, 0.2);
+    text-shadow: none;
+}
+
+img::selection {
+    background: transparent;
+}
+
+img::-moz-selection {
+    background: transparent;
+}
+
+body {
+    -webkit-tap-highlight-color: rgba(255, 171, 0.2);
+}
+
+.iban {
+    height: 100px;
+    text-align: left;
+}
+
+.iban table {
+    margin-top: 50px;
+}
+
+@media (max-width: 767px) {
+    .iban {
+        height: 150px;
+    }
+}
+
+.highlight {}
+
+#accommodations{
+    background-color:whitesmoke;
+    color: #00838F
+}
+
+#accommodations a{
+ color: #00838F
+}
+
+.hotel{
+    text-align:center;
+}
+
+.item {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.photo{
+}
+
+.photo-container{
+    background-color: black;
+    margin-top: 67px;
+}
