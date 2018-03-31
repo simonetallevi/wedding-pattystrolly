@@ -99,3 +99,4 @@ target/
 /.idea/
 /wedding-pattystrolly.iml
 /src/main/resources/attachments/*
+/src/main/webapp/test/*
