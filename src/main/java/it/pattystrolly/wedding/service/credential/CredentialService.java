@@ -53,7 +53,7 @@ public class CredentialService extends RetryableService {
 
     public static Credential getCredential(TechUser techUser, String clientId, String clientKey) throws Throwable {
         DateTime dateTime = new DateTime(techUser.getExpirationTime());
-        if (dateTime.plusMinutes(15).isAfterNow()) {
+        if (dateTime.plusMinutes(15).isBeforeNow()) {
             DatastoreService datastoreService = new DatastoreService();
             Map.Entry<String, Date> map = refreshAccessToken(techUser.getRefreshToken(), clientId, clientKey);
             techUser.setAccessToken(map.getKey());

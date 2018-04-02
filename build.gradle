@@ -26,6 +26,10 @@ apply plugin: 'war'                               // standard Web Archive plugin
 apply plugin: 'appengine'  // App Engine tasks
 apply plugin: 'org.gaelyk'
 
+appengine {
+    //jvmFlags = ['-Xdebug', '-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005']
+}
+
 dependencies {
     compile 'org.codehaus.groovy:groovy-all:2.4.3'
     appengineSdk "com.google.appengine:appengine-java-sdk:1.9.63"
