@@ -14,16 +14,6 @@
                     templateUrl: "partials/home/home.html",
                     controller: 'HomeCtrl as Home'
                 })
-                .state('photo', {
-                    url: "/photo",
-                    templateUrl: "partials/photo/photo.html",
-                    controller: 'PhotoCtrl as Photo'
-                })
-                .state('confirmation', {
-                    url: "/confirmation",
-                    templateUrl: "partials/confirmation/confirmation.html",
-                    controller: 'ConfirmationCtrl as Confirmation'
-                });
 
             $urlRouterProvider.otherwise("/");
         }

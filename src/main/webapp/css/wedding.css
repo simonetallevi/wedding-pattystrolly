@@ -399,3 +399,7 @@ body {
     background-color: black;
     margin-top: 67px;
 }
+
+.photo-border{
+    border-top: 5px solid black;
+}
