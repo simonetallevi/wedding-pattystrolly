@@ -34,7 +34,7 @@ public class Email {
 
     public enum Answer {
         NONE,
-        OK,
+        YES,
         NO
     }
 

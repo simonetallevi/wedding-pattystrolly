@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import java.io.StringWriter;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -39,7 +40,7 @@ public class SenderManager extends Manager {
 
         List<Email> alreadyStored = datastoreService.ofy().load().type(Email.class).list();
         Set<String> emailSent = new HashSet<>();
-        if(!alreadyStored.isEmpty()) {
+        if (!alreadyStored.isEmpty()) {
             for (Email email : alreadyStored) {
                 emailSent.add(joiner.join(email.getEmails()));
             }
@@ -52,7 +53,7 @@ public class SenderManager extends Manager {
                 continue;
             }
             Email email = Email.getEmail(tokens);
-            if(!emailSent.contains(joiner.join(email.getEmails()))) {
+            if (!emailSent.contains(joiner.join(email.getEmails()))) {
                 emails.add(email);
             }
         }
@@ -62,7 +63,7 @@ public class SenderManager extends Manager {
                 TaskOptions.Method.GET, TaskLauncher.Tasks.SEND.getServlet(),
                 ImmutableMap.of(
                         "action", "SEND",
-                        "ID", requestId), TaskLauncher.Tasks.SEND.name()+requestId);
+                        "ID", requestId), TaskLauncher.Tasks.SEND.name() + requestId);
         TaskQueueService.runTask(TaskLauncher.Tasks.SEND.getQueue(), task);
 
         log.info("Email stored");
@@ -75,8 +76,7 @@ public class SenderManager extends Manager {
             return;
         }
         InputStream reader = getClass().getClassLoader().getResourceAsStream("email_template/email.html");
-        URL alberghi = getClass().getClassLoader().getResource("attachments/Stefania&Simone-alberghi.pdf");
-        URL partecipazioni  = getClass().getClassLoader().getResource("attachments/Stefania&Simone-partecipazioni.pdf");
+        //URL partecipazioni = getClass().getClassLoader().getResource("attachments/giancarlo+enrica.jpg");
         StringWriter writer = new StringWriter();
         IOUtils.copy(reader, writer, "UTF-8");
         String body = writer.toString();
@@ -89,10 +89,7 @@ public class SenderManager extends Manager {
                     "SALUTATION", email.getSalutation(),
                     "BASEURL", EnvConstants.getBaseURL(),
                     "ID", email.getId()));
-            Email sentEmail = gmailService.sendEmail(email, "Nozze Stefania & Simone", customisedBody,
-                    ImmutableMap.of(
-                            partecipazioni.getPath(), "Stefania & Simone - partecipazioni.pdf",
-                            alberghi.getPath(), "Stefania & Simone - alberghi.pdf"));
+            Email sentEmail = gmailService.sendEmail(email, "nozze giancarlo + enrica", customisedBody, new HashMap<String, String>());
             datastoreService.ofy().save().entity(sentEmail);
         }
 
@@ -101,7 +98,7 @@ public class SenderManager extends Manager {
 
     public void registerView(String id) {
         Email email = getEmail(id);
-        if(email != null) {
+        if (email != null) {
             email.setOpen(true);
             datastoreService.ofy().save().entity(email);
         }
@@ -109,13 +106,22 @@ public class SenderManager extends Manager {
 
     public void registerWeb(String id) {
         Email email = getEmail(id);
-        if(email != null) {
+        if (email != null) {
             email.setClicked(true);
             datastoreService.ofy().save().entity(email);
         }
     }
 
-    private Email getEmail(String id){
+    public void registerAnswer(String id, Email.Answer answer) {
+        Email email = getEmail(id);
+        if (email != null) {
+            email.setAnswer(answer);
+            email.setClicked(true);
+            datastoreService.ofy().save().entity(email);
+        }
+    }
+
+    private Email getEmail(String id) {
         Email email = datastoreService.ofy().load().type(Email.class).id(id).now();
         if (email == null) {
             log.error("Email not found for id {}", id);

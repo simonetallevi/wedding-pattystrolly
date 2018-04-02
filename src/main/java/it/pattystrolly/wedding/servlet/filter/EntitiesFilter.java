@@ -14,7 +14,7 @@ import java.io.IOException;
 public class EntitiesFilter extends GenericServlet {
 
     static {
-        for (Class<?> c : Utils.getDatastoreClasses("it.simostefi.wedding.model")) {
+        for (Class<?> c : Utils.getDatastoreClasses("it.pattystrolly.wedding.model")) {
             ObjectifyService.register(c);
         }
     }
