@@ -101,3 +101,5 @@ target/
 /src/main/resources/attachments/*
 /src/main/webapp/test/*
 /src/main/resources/key/*
+/src/main/resources/inviti/inviti.csv
+/src/main/resources/inviti/_inviti.csv
